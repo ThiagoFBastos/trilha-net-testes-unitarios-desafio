@@ -31,7 +31,7 @@ public class ValidacoesListaTests
         var resultado = _validacoes.ListaContemDeterminadoNumero(lista, numeroParaProcurar);
 
         // Assert
-        Assert.True(resultado);
+        Assert.True(resultado); 
     }
 
     [Fact]
@@ -44,10 +44,13 @@ public class ValidacoesListaTests
         var numeroParaProcurar = 10;
 
         // Act
+        bool resultado = _validacoes.ListaContemDeterminadoNumero(lista, numeroParaProcurar);
 
         // Assert
+        Assert.False(resultado);
     }
 
+    [Fact]
     //TODO: Corrigir a anotação [Fact]
     public void DeveMultiplicarOsElementosDaListaPor2()
     {
@@ -58,8 +61,12 @@ public class ValidacoesListaTests
         var resultadoEsperado = new List<int> { 10, 14, 16, 18 };
         
         // Act
+        var resultado = _validacoes.MultiplicarNumerosLista(lista, 2);
 
         // Assert
+
+        for(int i = 0; i < 4; ++i)
+            Assert.Equal(resultadoEsperado[i], resultado[i]);
     }
 
     [Fact]
@@ -72,9 +79,11 @@ public class ValidacoesListaTests
 
         // Act
 
+        var resultado = _validacoes.RetornarMaiorNumeroLista(lista);
+
         // Assert
         //TODO: Corrigir o Assert.Equal com base no retorno da chamada ao método
-        Assert.Equal(9, 9);
+        Assert.Equal(9, resultado);
     }
 
     [Fact]
@@ -90,6 +99,6 @@ public class ValidacoesListaTests
 
         // Assert
         //TODO: Corrigir o Assert.Equal com base no retorno da chamada ao método
-        Assert.Equal(-8, -8);
+        Assert.Equal(-8, resultado);
     }
 }
